@@ -12,7 +12,8 @@ public class MapGenerator : MonoBehaviour
     public int fillPercent;
     public int smoothAmount;
 
-    public Tilemap tilemap;
+    public Tilemap tilemapGrass;
+    public Tilemap tilemapWater;
     public TileBase lightGreen;
     public TileBase water;
     int centerX, centerY;
@@ -88,11 +89,11 @@ public class MapGenerator : MonoBehaviour
             {
                 if (map[i, j] == 0)
                 {
-                    tilemap.SetTile(new Vector3Int(i - centerX, j - centerY), lightGreen);
+                    tilemapGrass.SetTile(new Vector3Int(i - centerX, j - centerY), lightGreen);
                 }
                 else
                 {
-                    tilemap.SetTile(new Vector3Int(i - centerX, j - centerY), water);
+                    tilemapWater.SetTile(new Vector3Int(i - centerX, j - centerY), water);
                 }
             }
         }
