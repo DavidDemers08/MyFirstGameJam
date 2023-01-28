@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMouvement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed = 5;
@@ -24,6 +24,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + speed * Time.deltaTime * direction);
+        rb.MovePosition(transform.position + speed * Time.deltaTime * direction.normalized);
     }
 }
