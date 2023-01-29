@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,23 +9,31 @@ public class MapGenerator : MonoBehaviour
     [Range(0, 100)]
     public int fillPercent;
     public int smoothAmount;
-
-    public Tilemap tilemapGrass;
-    public Tilemap tilemapWater;
-    public TileBase lightGreen;
-    public TileBase water;
     int centerX, centerY;
     int[,] map;
+    GameObject[,] gameObjects;
     private int seed;
+    public GameObject grassPrefab;
+    public GameObject waterPrefab;
+    public Transform tileContainer;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    public GameObject[,] GenerateMap(int width, int height)
+    {
+        this.width = width;
+        this.height = height;
+
         centerX = width / 2;
         centerY = height / 2;
-        GenerateMap();
+        CreateMap();
         SmoothMap();
         DrawMap();
+        return gameObjects;
     }
 
     private void SmoothMap()
@@ -89,20 +95,21 @@ public class MapGenerator : MonoBehaviour
             {
                 if (map[i, j] == 0)
                 {
-                    tilemapGrass.SetTile(new Vector3Int(i - centerX, j - centerY), lightGreen);
+                    gameObjects[i,j] = Instantiate(grassPrefab, new Vector2(i-centerX, j-centerY), Quaternion.identity,tileContainer);
                 }
                 else
                 {
-                    tilemapWater.SetTile(new Vector3Int(i - centerX, j - centerY), water);
+                    gameObjects[i, j] = Instantiate(waterPrefab, new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
                 }
             }
         }
     }
 
-    private void GenerateMap()
+    private void CreateMap()
     {
         map = new int[width, height];
-        seed = (int)System.DateTime.Now.Ticks;
+        gameObjects = new GameObject[width, height];
+        seed = (int)DateTime.Now.Ticks;
         System.Random random = new(seed);
 
         for (int i = 0; i < width; i++)
