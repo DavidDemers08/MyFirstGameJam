@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public Vector3 GetRandomGrassTile()
     {
-        System.Random r = new();
+        System.Random r = new System.Random();
         GameObject value = gameObjects[r.Next(gameObjects.GetLength(0)), r.Next(gameObjects.GetLength(1))];
         Tile tile = value.GetComponent<Tile>();
         if (tile.walkable)

@@ -110,7 +110,7 @@ public class MapGenerator : MonoBehaviour
         map = new int[width, height];
         gameObjects = new GameObject[width, height];
         seed = (int)DateTime.Now.Ticks;
-        System.Random random = new(seed);
+        System.Random random = new System.Random(seed);
 
         for (int i = 0; i < width; i++)
         {
