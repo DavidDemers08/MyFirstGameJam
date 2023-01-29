@@ -204,8 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapGenerator: {fileID: 920551690}
-  width: 50
-  height: 50
+  width: 200
+  height: 200
   numberOfEnnemies: 2
   PlayerPrefab: {fileID: 5965492843671463349, guid: 97fe89015bb6e17469621291c21e8660, type: 3}
   EnemyPrefab: {fileID: 356976807592434338, guid: 902140e3f5fece24290a4c0be30b996c, type: 3}
