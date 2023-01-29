@@ -4,8 +4,8 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
-    public int width;
-    public int height;
+    private int width;
+    private int height;
     [Range(0, 100)]
     public int fillPercent;
     public int smoothAmount;
@@ -44,7 +44,11 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int k = 0; k < map.GetLength(1); k++)
                 {
-                    if (j == 0 || k == 0 || j == map.GetLength(0) - 1 || k == map.GetLength(1) - 1)
+                    //if (j == 0 || k == 0 || j == map.GetLength(0) - 1 || k == map.GetLength(1) - 1)
+                    //{
+                    //    map[j, k] = 1;
+                    //}
+                    if (j < 8 || k < 5 || j > map.GetLength(0) - 6 || j > map.GetLength(1) - 6)
                     {
                         map[j, k] = 1;
                     }

@@ -26,4 +26,6 @@ public class PlayerMouvement : MonoBehaviour
     {
         rb.MovePosition(transform.position + speed * Time.deltaTime * direction.normalized);
     }
+
+
 }
