@@ -8,9 +8,11 @@ public class PlayerMouvement : MonoBehaviour
     public float speed = 5;
     private Rigidbody2D rb;
     private Vector3 direction;
+    private Animator animator;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -18,13 +20,16 @@ public class PlayerMouvement : MonoBehaviour
     {
         direction.x =  Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
+        direction = direction.normalized;
 
+        animator.SetFloat("Horizontal",direction.x);
+        animator.SetFloat("Vertical", direction.y);
 
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + speed * Time.deltaTime * direction.normalized);
+        rb.MovePosition(transform.position + speed * Time.deltaTime * direction);
     }
 
 

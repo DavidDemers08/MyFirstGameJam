@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private GameObject[,] gameObjects;
     public GameObject PlayerPrefab;
     public GameObject EnemyPrefab;
+    public Transform enemyContainer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < numberOfEnnemies; i++)
         {
-            Instantiate(EnemyPrefab, GetRandomGrassTile(), Quaternion.identity);
+            Instantiate(EnemyPrefab, GetRandomGrassTile(), Quaternion.identity,enemyContainer);
         }
     }
 
@@ -38,17 +39,12 @@ public class GameManager : MonoBehaviour
     public Vector3 GetRandomGrassTile()
     {
         System.Random r = new System.Random();
-        GameObject value = gameObjects[r.Next(gameObjects.GetLength(0)), r.Next(gameObjects.GetLength(1))];
-        Tile tile = value.GetComponent<Tile>();
-        if (tile.walkable)
+        Tile tile = gameObjects[r.Next(gameObjects.GetLength(0)), r.Next(gameObjects.GetLength(1))].GetComponent<Tile>();
+        while (!tile.walkable)
         {
-            return value.transform.position;
-        }
-        else
-        {
-            GetRandomGrassTile();
+             tile = gameObjects[r.Next(gameObjects.GetLength(0)), r.Next(gameObjects.GetLength(1))].GetComponent<Tile>();
         }
 
-        return new Vector3();
+        return tile.gameObject.transform.position;        
     }
 }
