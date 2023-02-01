@@ -10,7 +10,9 @@ public class CombatManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        
         if (player == null) return;
+        player.transform.GetChild(0).gameObject.SetActive(false);
         player.transform.position = playerPosition.position;
     }
 

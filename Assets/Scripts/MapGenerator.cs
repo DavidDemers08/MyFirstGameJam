@@ -14,8 +14,9 @@ public class MapGenerator : MonoBehaviour
     GameObject[,] gameObjects;
     private int seed;
     public GameObject grassPrefab;
-    public GameObject waterPrefab;
+    public GameObject forestPrefab;
     public Transform tileContainer;
+    public GameObject[] trees;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,12 @@ public class MapGenerator : MonoBehaviour
         CreateMap();
         SmoothMap();
         DrawMap();
+        SpawnTrees();
         return gameObjects;
+    }
+
+    private void SpawnTrees()
+    {
     }
 
     private void SmoothMap()
@@ -89,6 +95,7 @@ public class MapGenerator : MonoBehaviour
 
     private void DrawMap()
     {
+        
         for (int i = 0; i < map.GetLength(0); i++)
         {
             for (int j = 0; j < map.GetLength(1); j++)
@@ -96,10 +103,18 @@ public class MapGenerator : MonoBehaviour
                 if (map[i, j] == 0)
                 {
                     gameObjects[i,j] = Instantiate(grassPrefab, new Vector2(i-centerX, j-centerY), Quaternion.identity,tileContainer);
+                    //tilemap.SetTile(new Vector3Int(i - centerX, j - centerY,0), ground);
+
+                    
                 }
                 else
                 {
-                    gameObjects[i, j] = Instantiate(waterPrefab, new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
+                    if (UnityEngine.Random.value < 1)
+                    {
+                        Instantiate(trees[UnityEngine.Random.Range(0,trees.Length)], new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
+                    }
+                    //tilemap.SetTile(new Vector3Int(i - centerX, j - centerY, 0), forest);
+                    gameObjects[i, j] = Instantiate(forestPrefab, new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
                 }
             }
         }
