@@ -155,8 +155,12 @@ MonoBehaviour:
   fillPercent: 45
   smoothAmount: 2
   grassPrefab: {fileID: 217649332372265487, guid: 36731a9f55e7b5b46be9f74de7086bcf, type: 3}
-  waterPrefab: {fileID: 6774212095046520872, guid: dff76e0c02f1bcb4bbdee9fc1b66b008, type: 3}
+  forestPrefab: {fileID: 6774212095046520872, guid: dff76e0c02f1bcb4bbdee9fc1b66b008, type: 3}
   tileContainer: {fileID: 1863755477}
+  trees:
+  - {fileID: 2472715604543742459, guid: 73678a3c1568ba244b7e38fdffd7ba75, type: 3}
+  - {fileID: 5661733794672190316, guid: 25657d8f249e49f4aba6c81ade21bc8a, type: 3}
+  - {fileID: 1343245374916341111, guid: 0b7a3222fcb498c439b5c24e1202bff4, type: 3}
 --- !u!4 &920551691
 Transform:
   m_ObjectHideFlags: 0
@@ -165,7 +169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920551689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83026034, y: 0.0026582333, z: 0.027699089}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -195,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225648495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8470197, y: -4.736428, z: 0.6421822}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -231,8 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapGenerator: {fileID: 920551690}
-  width: 200
-  height: 200
+  width: 75
+  height: 75
   numberOfEnnemies: 2
   PlayerPrefab: {fileID: 5965492843671463349, guid: 97fe89015bb6e17469621291c21e8660, type: 3}
   EnemyPrefab: {fileID: 356976807592434338, guid: 902140e3f5fece24290a4c0be30b996c, type: 3}
@@ -275,7 +279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863755476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8470197, y: -4.736428, z: 0.6421822}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
