@@ -784,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 1614251872}
+  slider: {fileID: 1417426742}
 --- !u!4 &1315787124
 Transform:
   m_ObjectHideFlags: 0
