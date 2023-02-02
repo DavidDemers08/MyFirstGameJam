@@ -12,19 +12,19 @@ public class CombatManager : MonoBehaviour
     public Slider slider;
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        //player = GameObject.FindWithTag("Player");
+        InitHealth();
+
+        //if (player == null) return;
+        //player.transform.GetChild(0).gameObject.SetActive(false);
+        //player.transform.position = playerPosition.position;
 
         
-        if (player == null) return;
-        player.transform.GetChild(0).gameObject.SetActive(false);
-        player.transform.position = playerPosition.position;
-
-        InitHealth();
     }
 
     private void InitHealth()
     {
-        slider.value = MainManager.Instance.currentHp / MainManager.Instance.maxHp;
+        slider.value = (float) MainManager.Instance.CurrentHp / MainManager.Instance.maxHp;
     }
 
     // Update is called once per frame

@@ -38,11 +38,11 @@ public class GameManager : MonoBehaviour
 
     public Vector3 GetRandomGrassTile()
     {
-        System.Random r = new System.Random();
-        Tile tile = gameObjects[r.Next(gameObjects.GetLength(0)), r.Next(gameObjects.GetLength(1))].GetComponent<Tile>();
+        
+        Tile tile = gameObjects[UnityEngine.Random.Range(0,gameObjects.GetLength(0)), UnityEngine.Random.Range(0,gameObjects.GetLength(1))].GetComponent<Tile>();
         while (!tile.walkable)
         {
-             tile = gameObjects[r.Next(gameObjects.GetLength(0)), r.Next(gameObjects.GetLength(1))].GetComponent<Tile>();
+             tile = gameObjects[UnityEngine.Random.Range(0, gameObjects.GetLength(0)), UnityEngine.Random.Range(0, gameObjects.GetLength(1))].GetComponent<Tile>();
         }
 
         return tile.gameObject.transform.position;        

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
-    public int currentHp;
+    public int CurrentHp { get; set; }
     public int maxHp = 100;
     private void Awake()
     {
@@ -20,6 +20,6 @@ public class MainManager : MonoBehaviour
 
     private void Start()
     {
-        currentHp = 50;
+        CurrentHp = 50;
     }
 }
