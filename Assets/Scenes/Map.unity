@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &136962453
+--- !u!1 &617017557
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,17 +131,16 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 136962456}
-  - component: {fileID: 136962455}
-  - component: {fileID: 136962454}
+  - component: {fileID: 617017559}
+  - component: {fileID: 617017558}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: MainManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &136962454
+--- !u!114 &617017558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHp: 100
+  maxHp: 100
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -181,7 +182,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136962453}
+  m_GameObject: {fileID: 617017557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -221,8 +222,12 @@ MonoBehaviour:
   fillPercent: 45
   smoothAmount: 2
   grassPrefab: {fileID: 217649332372265487, guid: 36731a9f55e7b5b46be9f74de7086bcf, type: 3}
-  waterPrefab: {fileID: 6774212095046520872, guid: dff76e0c02f1bcb4bbdee9fc1b66b008, type: 3}
+  forestPrefab: {fileID: 6774212095046520872, guid: dff76e0c02f1bcb4bbdee9fc1b66b008, type: 3}
   tileContainer: {fileID: 1863755477}
+  trees:
+  - {fileID: 2472715604543742459, guid: 73678a3c1568ba244b7e38fdffd7ba75, type: 3}
+  - {fileID: 5661733794672190316, guid: 25657d8f249e49f4aba6c81ade21bc8a, type: 3}
+  - {fileID: 1343245374916341111, guid: 0b7a3222fcb498c439b5c24e1202bff4, type: 3}
 --- !u!4 &920551691
 Transform:
   m_ObjectHideFlags: 0
@@ -231,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920551689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83026034, y: 0.0026582333, z: 0.027699089}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -291,7 +296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225648495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8470197, y: -4.736428, z: 0.6421822}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -327,8 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapGenerator: {fileID: 920551690}
-  width: 200
-  height: 200
+  width: 75
+  height: 75
   numberOfEnnemies: 2
   PlayerPrefab: {fileID: 5965492843671463349, guid: 97fe89015bb6e17469621291c21e8660, type: 3}
   EnemyPrefab: {fileID: 356976807592434338, guid: 902140e3f5fece24290a4c0be30b996c, type: 3}
@@ -373,7 +378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863755476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8470197, y: -4.736428, z: 0.6421822}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -54,4 +54,6 @@ TagManager:
     locked: 0
   - name: Chest
     uniqueID: 977474543
+  - name: tree
+    uniqueID: 1918362985
     locked: 0
