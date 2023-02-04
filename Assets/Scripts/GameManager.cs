@@ -69,6 +69,11 @@ public class GameManager : MonoBehaviour
         BoundsInt bounds = tilemap.cellBounds;
         Vector3Int randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), UnityEngine.Random.Range(bounds.yMin, bounds.yMax), 0);
         TileBase randomTile = tilemap.GetTile(randomCell);
+        while (randomTile != grassTile)
+        {
+            randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), UnityEngine.Random.Range(bounds.yMin, bounds.yMax), 0);
+            randomTile = tilemap.GetTile(randomCell);
+        }
 
         return tilemap.GetCellCenterWorld(randomCell);
     }
