@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        Instantiate(PlayerPrefab, GetRandomGrassTilePosition(), Quaternion.identity);
+        Instantiate(PlayerPrefab, SpawnLocationForPlayer(), Quaternion.identity);
     }
 
     //public Vector3 GetRandomGrassTile()
@@ -64,6 +64,19 @@ public class GameManager : MonoBehaviour
 
     //    return tile.gameObject.transform.position;        
     //}
+    private Vector2 SpawnLocationForPlayer()
+    {
+        BoundsInt bounds = tilemap.cellBounds;
+        Vector3Int randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), bounds.yMin, 0);
+        TileBase randomTile = tilemap.GetTile(randomCell);
+        while (randomTile != grassTile)
+        {
+            randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), bounds.yMin, 0);
+            randomTile = tilemap.GetTile(randomCell);
+        }
+
+        return tilemap.GetCellCenterWorld(randomCell);
+    }
     public Vector3 GetRandomGrassTilePosition()
     {
         BoundsInt bounds = tilemap.cellBounds;

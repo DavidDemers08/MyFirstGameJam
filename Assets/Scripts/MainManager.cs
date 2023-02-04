@@ -7,6 +7,9 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance;
     public int CurrentHp { get; set; }
     public int maxHp = 100;
+    
+
+    public GameObject currentEnemy;
     private void Awake()
     {
         if (Instance != null)
