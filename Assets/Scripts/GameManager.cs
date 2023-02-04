@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     private GameObject[,] gameObjects;
     public GameObject PlayerPrefab;
     public GameObject EnemyPrefab;
+    public GameObject ChestPrefab;
     public Transform enemyContainer;
+    public Transform chestContainer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
         gameObjects = mapGenerator.GenerateMap(width, height);
         SpawnPlayer();
         StartCoroutine(SpawnEnemies(numberOfEnnemies));
+        StartCoroutine(SpawnChests(5));
     }
 
     private IEnumerator SpawnEnemies(int numberOfEnnemies)
@@ -28,6 +31,15 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numberOfEnnemies; i++)
         {
             Instantiate(EnemyPrefab, GetRandomGrassTile(), Quaternion.identity,enemyContainer);
+        }
+    }
+
+    private IEnumerator SpawnChests(int numberOfChests)
+    {
+        yield return new WaitForSeconds(2f);
+        for (int i = 0; i­ < numberOfChests; i++)
+        {
+            Instantiate(ChestPrefab, GetRandomGrassTile(), Quaternion.identity, chestContainer);
         }
     }
 
