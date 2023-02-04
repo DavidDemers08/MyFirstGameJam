@@ -50,7 +50,11 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int k = 0; k < map.GetLength(1); k++)
                 {
-                    if (j == 0 || k == 0 || j == map.GetLength(0) - 1 || k == map.GetLength(1) - 1)
+                    //if (j == 0 || k == 0 || j == map.GetLength(0) - 1 || k == map.GetLength(1) - 1)
+                    //{
+                    //    map[j, k] = 1;
+                    //}
+                    if (j< 9 || k < 9 || j > map.GetLength(0)-10 || k > map.GetLength(1) - 10)
                     {
                         map[j, k] = 1;
                     }
@@ -115,7 +119,7 @@ public class MapGenerator : MonoBehaviour
                     //}
                     
                     forestTilemap.SetTile(new Vector3Int(i - centerX, j - centerY, 0), forest);
-                    Instantiate(trees[UnityEngine.Random.Range(0, trees.Length)], forestTilemap.GetCellCenterWorld(new Vector3Int(i - centerX, j - centerY, 0)),Quaternion.identity);
+                    Instantiate(trees[UnityEngine.Random.Range(0, trees.Length)], forestTilemap.GetCellCenterWorld(new Vector3Int(i - centerX, j - centerY, 0)),Quaternion.identity,tileContainer);
                     //gameObjects[i, j] = Instantiate(forestPrefab, new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
                 }
             }

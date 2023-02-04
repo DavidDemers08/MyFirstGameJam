@@ -32,23 +32,28 @@ public class EnemyChase : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 visionDirection = player.transform.position - transform.position;
-        visionDirection.Normalize();
-
-        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, visionDirection, distance,layerMask);
-
-        if (raycastHit.collider != null)
+        if (player != null)
         {
-            chasing = false;
-            if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            Vector2 visionDirection = player.transform.position - transform.position;
+            visionDirection.Normalize();
+
+            RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, visionDirection, distance, layerMask);
+
+            if (raycastHit.collider != null)
             {
+                chasing = false;
+                if (raycastHit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                {
                     direction = visionDirection;
                     chasing = true;
+                }
+            }
+            else
+            {
+                chasing = false;
             }
         }
-        else
-        {
-            chasing = false;
-        }
+
+        
     }
 }

@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  currentEnemy: {fileID: 0}
 --- !u!1 &920551689
 GameObject:
   m_ObjectHideFlags: 0
