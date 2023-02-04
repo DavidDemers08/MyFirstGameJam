@@ -18,13 +18,18 @@ public class MapGenerator : MonoBehaviour
     public Transform tileContainer;
     public GameObject[] trees;
 
+    public Tilemap groundTilemap;
+    public Tilemap forestTilemap;
+    public TileBase grass;
+    public TileBase forest;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public GameObject[,] GenerateMap(int width, int height)
+    public int[,] GenerateMap(int width, int height)
     {
         this.width = width;
         this.height = height;
@@ -34,12 +39,7 @@ public class MapGenerator : MonoBehaviour
         CreateMap();
         SmoothMap();
         DrawMap();
-        SpawnTrees();
-        return gameObjects;
-    }
-
-    private void SpawnTrees()
-    {
+        return map;
     }
 
     private void SmoothMap()
@@ -102,19 +102,21 @@ public class MapGenerator : MonoBehaviour
             {
                 if (map[i, j] == 0)
                 {
-                    gameObjects[i,j] = Instantiate(grassPrefab, new Vector2(i-centerX, j-centerY), Quaternion.identity,tileContainer);
-                    //tilemap.SetTile(new Vector3Int(i - centerX, j - centerY,0), ground);
+                    //gameObjects[i,j] = Instantiate(grassPrefab, new Vector2(i-centerX, j-centerY), Quaternion.identity,tileContainer);
+                    groundTilemap.SetTile(new Vector3Int(i - centerX, j - centerY,0), grass);
 
                     
                 }
                 else
                 {
-                    if (UnityEngine.Random.value < 1)
-                    {
-                        Instantiate(trees[UnityEngine.Random.Range(0,trees.Length)], new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
-                    }
-                    //tilemap.SetTile(new Vector3Int(i - centerX, j - centerY, 0), forest);
-                    gameObjects[i, j] = Instantiate(forestPrefab, new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
+                    //if (UnityEngine.Random.value < 1)
+                    //{
+                    //    Instantiate(trees[UnityEngine.Random.Range(0,trees.Length)], new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
+                    //}
+                    
+                    forestTilemap.SetTile(new Vector3Int(i - centerX, j - centerY, 0), forest);
+                    Instantiate(trees[UnityEngine.Random.Range(0, trees.Length)], forestTilemap.GetCellCenterWorld(new Vector3Int(i - centerX, j - centerY, 0)),Quaternion.identity);
+                    //gameObjects[i, j] = Instantiate(forestPrefab, new Vector2(i - centerX, j - centerY), Quaternion.identity,tileContainer);
                 }
             }
         }
