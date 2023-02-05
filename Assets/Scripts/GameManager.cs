@@ -27,30 +27,29 @@ public class GameManager : MonoBehaviour
         map = mapGenerator.GenerateMap(width, height);
         SpawnPlayer();
         StartCoroutine(SpawnEnemies(numberOfEnnemies));
-        StartCoroutine(SpawnChests(5));
+        SpawnChests(5);
     }
 
     private IEnumerator SpawnEnemies(int numberOfEnnemies)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         for (int i = 0; i < numberOfEnnemies; i++)
         {
-            Instantiate(EnemyPrefab, GetRandomGrassTilePosition(), Quaternion.identity,enemyContainer);
+            Instantiate(EnemyPrefab, mapGenerator.GetRandomGrassTilePosition(), Quaternion.identity,enemyContainer);
         }
     }
 
-    private IEnumerator SpawnChests(int numberOfChests)
+    private void SpawnChests(int numberOfChests)
     {
-        yield return new WaitForSeconds(2f);
         for (int i = 0; i­ < numberOfChests; i++)
         {
-            Instantiate(ChestPrefab, GetRandomGrassTilePosition(), Quaternion.identity, chestContainer);
+            Instantiate(ChestPrefab, mapGenerator.GetRandomGrassTilePosition(), Quaternion.identity, chestContainer);
         }
     }
 
     private void SpawnPlayer()
     {
-        Instantiate(PlayerPrefab, SpawnLocationForPlayer(), Quaternion.identity);
+        Instantiate(PlayerPrefab, mapGenerator.SpawnLocationForPlayer(), Quaternion.identity);
     }
 
     //public Vector3 GetRandomGrassTile()
@@ -64,30 +63,5 @@ public class GameManager : MonoBehaviour
 
     //    return tile.gameObject.transform.position;        
     //}
-    private Vector2 SpawnLocationForPlayer()
-    {
-        BoundsInt bounds = tilemap.cellBounds;
-        Vector3Int randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), bounds.yMin, 0);
-        TileBase randomTile = tilemap.GetTile(randomCell);
-        while (randomTile != grassTile)
-        {
-            randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), bounds.yMin, 0);
-            randomTile = tilemap.GetTile(randomCell);
-        }
-
-        return tilemap.GetCellCenterWorld(randomCell);
-    }
-    public Vector3 GetRandomGrassTilePosition()
-    {
-        BoundsInt bounds = tilemap.cellBounds;
-        Vector3Int randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), UnityEngine.Random.Range(bounds.yMin, bounds.yMax), 0);
-        TileBase randomTile = tilemap.GetTile(randomCell);
-        while (randomTile != grassTile)
-        {
-            randomCell = new Vector3Int(UnityEngine.Random.Range(bounds.xMin, bounds.xMax), UnityEngine.Random.Range(bounds.yMin, bounds.yMax), 0);
-            randomTile = tilemap.GetTile(randomCell);
-        }
-
-        return tilemap.GetCellCenterWorld(randomCell);
-    }
+    
 }

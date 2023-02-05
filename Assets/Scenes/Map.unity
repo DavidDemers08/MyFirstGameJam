@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillPercent: 45
   smoothAmount: 2
+  borderAmount: 9
   grassPrefab: {fileID: 217649332372265487, guid: 36731a9f55e7b5b46be9f74de7086bcf, type: 3}
   forestPrefab: {fileID: 6774212095046520872, guid: dff76e0c02f1bcb4bbdee9fc1b66b008, type: 3}
   tileContainer: {fileID: 1863755477}
