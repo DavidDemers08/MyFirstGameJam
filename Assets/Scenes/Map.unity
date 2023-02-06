@@ -486,6 +486,7 @@ MonoBehaviour:
   ChestPrefab: {fileID: 6388881278046744642, guid: 1f1476f2c9808464298d5af4ca69e8c8, type: 3}
   enemyContainer: {fileID: 1225648496}
   chestContainer: {fileID: 989033313}
+  numberOfChests: 2
   tilemap: {fileID: 441826906}
   grassTile: {fileID: 11400000, guid: 3a55ea16c5cb2574ab0812857f39f278, type: 2}
 --- !u!4 &1645610278
