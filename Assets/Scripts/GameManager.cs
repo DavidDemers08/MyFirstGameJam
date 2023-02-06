@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject ChestPrefab;
     public Transform enemyContainer;
     public Transform chestContainer;
+    public int numberOfChests;
 
     public Tilemap tilemap;
     public TileBase grassTile;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
         map = mapGenerator.GenerateMap(width, height);
         SpawnPlayer();
         StartCoroutine(SpawnEnemies(numberOfEnnemies));
-        SpawnChests(5);
+        SpawnChests(numberOfChests);
     }
 
     private IEnumerator SpawnEnemies(int numberOfEnnemies)

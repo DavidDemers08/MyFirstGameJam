@@ -24,7 +24,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -47,7 +46,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 76
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -639,32 +638,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Untitled_01-26-2023_01-55-18_5_8: 751448082
-      Untitled_01-26-2023_01-55-18_5_19: -1936843401
-      Untitled_01-26-2023_01-55-18_5_1: 1947803474
-      Untitled_01-26-2023_01-55-18_5_4: 434847973
-      Untitled_01-26-2023_01-55-18_5_13: -2107782606
-      Untitled_01-26-2023_01-55-18_5_14: -135305175
-      Untitled_01-26-2023_01-55-18_5_23: 1950149327
-      Untitled_01-26-2023_01-55-18_5_17: 1768966347
-      Untitled_01-26-2023_01-55-18_5_10: 1552663500
-      Untitled_01-26-2023_01-55-18_5_15: -969102781
-      Untitled_01-26-2023_01-55-18_5_7: 1580671941
-      Untitled_01-26-2023_01-55-18_5_2: 1182492451
-      Untitled_01-26-2023_01-55-18_5_5: -2120152830
-      Untitled_01-26-2023_01-55-18_5_20: -1260462519
-      Untitled_01-26-2023_01-55-18_5_21: 702914291
-      Untitled_01-26-2023_01-55-18_5_22: -556832736
-      Untitled_01-26-2023_01-55-18_5_9: 750387927
-      Untitled_01-26-2023_01-55-18_5_18: 97862869
-      Untitled_01-26-2023_01-55-18_5_24: 670458565
-      Untitled_01-26-2023_01-55-18_5_3: 693220739
-      Untitled_01-26-2023_01-55-18_5_12: 1042369368
-      Untitled_01-26-2023_01-55-18_5_6: 1292118506
-      Untitled_01-26-2023_01-55-18_5_0: 1331146636
-      Untitled_01-26-2023_01-55-18_5_16: -2002879005
-      Untitled_01-26-2023_01-55-18_5_11: -843973433
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
